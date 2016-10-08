@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bg5-Ye-L4e">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="OaC-wZ-GvZ">
+            <objects>
+                <tabBarController id="bg5-Ye-L4e" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="YgY-Ed-vOd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Jn0-f5-78N" kind="relationship" relationship="viewControllers" id="EAA-lz-XUG"/>
+                        <segue destination="Cf1-iN-l74" kind="relationship" relationship="viewControllers" id="jXw-NA-DKy"/>
+                        <segue destination="cyi-DE-qVA" kind="relationship" relationship="viewControllers" id="fMu-Bv-9Hd"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IlN-ve-tqe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-451" y="626"/>
+        </scene>
+        <!--实例一-->
+        <scene sceneID="K3v-Ez-hG4">
+            <objects>
+                <navigationController id="Jn0-f5-78N" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="实例一" id="s83-gV-eQg"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="G7h-Yf-E4y">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="8HU-RW-nIv" kind="relationship" relationship="rootViewController" id="Shl-5H-AyX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B8G-ZQ-w3R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="308" y="-172"/>
+        </scene>
+        <!--Runtime为分类添加属性-->
+        <scene sceneID="4HI-eh-HTv">
+            <objects>
+                <viewController id="8HU-RW-nIv" customClass="FirstExampleViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="d13-Y9-qw3"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gsg-EB-lfN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FNN-Ys-kxm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="说明：为UIView添加一个分类，新增一个点击事件的方法，通过运行时将点击事件的代码块存储在分类中！" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irb-66-4Nb">
+                                <rect key="frame" x="20" y="72" width="560" height="100"/>
+                                <color key="backgroundColor" red="0.94509803920000002" green="0.59607843140000005" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="bRa-cR-YB5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Irb-66-4Nb" firstAttribute="leading" secondItem="FNN-Ys-kxm" secondAttribute="leading" constant="20" id="HB1-kF-ola"/>
+                            <constraint firstAttribute="trailing" secondItem="Irb-66-4Nb" secondAttribute="trailing" constant="20" id="lUi-2r-C2N"/>
+                            <constraint firstItem="Irb-66-4Nb" firstAttribute="top" secondItem="d13-Y9-qw3" secondAttribute="bottom" constant="8" id="ooI-7K-ao2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Runtime为分类添加属性" id="S1v-uQ-gbJ"/>
+                    <connections>
+                        <outlet property="label" destination="Irb-66-4Nb" id="gEQ-6E-B7g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jn0-tL-b70" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1081" y="-172"/>
+        </scene>
+        <!--Runtime解决定时器内存泄漏-->
+        <scene sceneID="oBn-2d-lPO">
+            <objects>
+                <viewController id="XkL-j1-KYu" customClass="SecondExampleViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IWy-Z0-vJZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="BmT-kg-A6N"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ghW-bF-2eM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JpR-B0-TNa">
+                                <rect key="frame" x="209" y="180" width="182" height="30"/>
+                                <state key="normal" title="Runtime解决"/>
+                                <connections>
+                                    <segue destination="Zkh-gM-Pgb" kind="show" identifier="RuntimeSegue" id="S2g-bf-NUX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIy-wt-L2x">
+                                <rect key="frame" x="399" y="180" width="181" height="30"/>
+                                <state key="normal" title="代理解决"/>
+                                <connections>
+                                    <segue destination="Zkh-gM-Pgb" kind="show" identifier="DelegateSegue" id="99d-MW-haK"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="说明：iOS中的定时器存在内存泄漏，原因不详说，可以通过代理或者Runtime解决这个问题。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZ9-q4-JQU">
+                                <rect key="frame" x="20" y="72" width="560" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="J37-M6-a72"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnO-iP-bvv">
+                                <rect key="frame" x="20" y="180" width="181" height="30"/>
+                                <state key="normal" title="存在内存泄漏"/>
+                                <connections>
+                                    <segue destination="Zkh-gM-Pgb" kind="show" identifier="MemoryLeakSegue" id="qAo-WN-EJw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DnO-iP-bvv" firstAttribute="leading" secondItem="ghW-bF-2eM" secondAttribute="leading" constant="20" id="1ft-5k-0qi"/>
+                            <constraint firstAttribute="trailing" secondItem="FIy-wt-L2x" secondAttribute="trailing" constant="20" id="6Pm-In-mNZ"/>
+                            <constraint firstItem="FIy-wt-L2x" firstAttribute="top" secondItem="DnO-iP-bvv" secondAttribute="top" id="BEC-Ew-dbh"/>
+                            <constraint firstItem="FIy-wt-L2x" firstAttribute="width" secondItem="DnO-iP-bvv" secondAttribute="width" id="ByH-qO-XdW"/>
+                            <constraint firstItem="JpR-B0-TNa" firstAttribute="width" secondItem="DnO-iP-bvv" secondAttribute="width" id="LrV-eQ-m69"/>
+                            <constraint firstItem="FIy-wt-L2x" firstAttribute="height" secondItem="DnO-iP-bvv" secondAttribute="height" id="UrK-KJ-aEG"/>
+                            <constraint firstItem="hZ9-q4-JQU" firstAttribute="top" secondItem="IWy-Z0-vJZ" secondAttribute="bottom" constant="8" id="Vaa-MI-Ngi"/>
+                            <constraint firstItem="DnO-iP-bvv" firstAttribute="top" secondItem="hZ9-q4-JQU" secondAttribute="bottom" constant="8" id="bVb-fi-hho"/>
+                            <constraint firstItem="hZ9-q4-JQU" firstAttribute="leading" secondItem="ghW-bF-2eM" secondAttribute="leading" constant="20" id="fkZ-Qk-cyF"/>
+                            <constraint firstAttribute="trailing" secondItem="hZ9-q4-JQU" secondAttribute="trailing" constant="20" id="ig4-Yu-BOD"/>
+                            <constraint firstItem="JpR-B0-TNa" firstAttribute="top" secondItem="DnO-iP-bvv" secondAttribute="top" id="iuA-X4-FAY"/>
+                            <constraint firstItem="FIy-wt-L2x" firstAttribute="leading" secondItem="JpR-B0-TNa" secondAttribute="trailing" constant="8" id="liZ-Ze-aVc"/>
+                            <constraint firstItem="JpR-B0-TNa" firstAttribute="height" secondItem="DnO-iP-bvv" secondAttribute="height" id="rFP-Ua-0hV"/>
+                            <constraint firstItem="JpR-B0-TNa" firstAttribute="leading" secondItem="DnO-iP-bvv" secondAttribute="trailing" constant="8" id="xEX-Zp-C4Q"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Runtime解决定时器内存泄漏" id="rf5-3w-2tw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o5x-PU-1jF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1081" y="626"/>
+        </scene>
+        <!--Timer Table View Controller-->
+        <scene sceneID="Zqp-iz-XgY">
+            <objects>
+                <tableViewController id="Zkh-gM-Pgb" customClass="TimerTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="t8b-B2-JpC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="Zkh-gM-Pgb" id="FaY-1G-b2E"/>
+                            <outlet property="delegate" destination="Zkh-gM-Pgb" id="IYI-1f-FOS"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eCT-4n-mwA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1815" y="626"/>
+        </scene>
+        <!--实例二-->
+        <scene sceneID="Ah9-EO-nSe">
+            <objects>
+                <navigationController id="Cf1-iN-l74" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="实例二" id="pb1-AP-V0n"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bnP-X0-brF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="XkL-j1-KYu" kind="relationship" relationship="rootViewController" id="G5u-aL-Ky2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xW7-b9-W2g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="308" y="626"/>
+        </scene>
+        <!--实例三-->
+        <scene sceneID="b6b-3V-dPN">
+            <objects>
+                <navigationController id="cyi-DE-qVA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="实例三" id="2Nv-Wg-6g7"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bA4-Ff-74R">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Lup-3m-K0c" kind="relationship" relationship="rootViewController" id="bwI-1d-B0y"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BAl-FV-mq8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="308" y="1413"/>
+        </scene>
+        <!--Third Example View Controller-->
+        <scene sceneID="OlC-0d-Z2g">
+            <objects>
+                <viewController id="Lup-3m-K0c" customClass="ThirdExampleViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DvG-jR-N73"/>
+                        <viewControllerLayoutGuide type="bottom" id="K0P-0W-oeb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1oP-yg-bMy">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBY-ms-Wd8">
+                                <rect key="frame" x="240" y="285" width="120" height="30"/>
+                                <state key="normal" title="统计界面浏览次数"/>
+                                <connections>
+                                    <action selector="statisticsButtonAction:" destination="Lup-3m-K0c" eventType="touchUpInside" id="Qpv-FN-2cL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bBY-ms-Wd8" firstAttribute="centerX" secondItem="1oP-yg-bMy" secondAttribute="centerX" id="bcv-wL-26W"/>
+                            <constraint firstItem="bBY-ms-Wd8" firstAttribute="centerY" secondItem="1oP-yg-bMy" secondAttribute="centerY" id="cPg-X0-2II"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="fpG-OU-OCz"/>
+                    <connections>
+                        <segue destination="tEg-np-uhG" kind="show" identifier="StatisticsSegue" id="1mo-hW-x9y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6IK-2J-Pcm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1081" y="1413"/>
+        </scene>
+        <!--Statistics Table View Controller-->
+        <scene sceneID="Ih5-MT-2Fi">
+            <objects>
+                <tableViewController id="tEg-np-uhG" customClass="StatisticsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="T4q-id-Dmk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="tEg-np-uhG" id="2wW-Cd-Pgo"/>
+                            <outlet property="delegate" destination="tEg-np-uhG" id="TUW-kP-xJu"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="doF-fW-xwf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1815" y="1413"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="qAo-WN-EJw"/>
+    </inferredMetricsTieBreakers>
+</document>
