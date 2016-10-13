@@ -11,6 +11,7 @@
 #import "StatisticsModel.h"
 #import "MJRefresh.h"
 #import "LoadingClass.h"
+#import <objc/objc-class.h>
 
 @interface StatisticsTableViewController ()
 
@@ -37,25 +38,52 @@
     [super viewDidLoad];
     
     [self settingUi];
+    
+    Class class = [self class];
+    // When swizzling a class method, use the following:
+    // Class class = object_getClass((id)self);
+    SEL originalSelector = @selector(viewDidAppear:);
+    SEL swizzledSelector = @selector(replaceFunction:);
+    Method originalMethod = class_getInstanceMethod(class, originalSelector);
+    Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
+//    BOOL didAddMethod = class_addMethod(class,
+//                                        originalSelector,
+//                                        method_getImplementation(swizzledMethod),
+//                                        method_getTypeEncoding(swizzledMethod));
+//    if (didAddMethod) {
+//        class_replaceMethod(class,
+//                            swizzledSelector,
+//                            method_getImplementation(originalMethod),
+//                            method_getTypeEncoding(originalMethod));
+//    } else {
+//        method_exchangeImplementations(originalMethod, swizzledMethod);
+//    }
+    
+    
+    method_exchangeImplementations(originalMethod, swizzledMethod);
 }
-- (void)viewDidAppear:(BOOL)animated
+- (void)replaceFunction:(BOOL)animated
 {
-    [super viewDidAppear:animated];
-    
-    [LoadingClass show];
-    [self gettingData:NO];
-    
-    __unsafe_unretained UITableView *tableView = self.tableView;
-    __unsafe_unretained __typeof(self) weakSelf = self;
-    
-    // 下拉刷新
-    tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [weakSelf gettingData:YES];
-    }];
-    
-    // 设置自动切换透明度(在导航栏下面自动隐藏)
-    tableView.mj_header.automaticallyChangeAlpha = YES;
+    [self replaceFunction:animated];
 }
+//- (void)viewDidAppear:(BOOL)animated
+//{
+//    [super viewDidAppear:animated];
+//    
+//    [LoadingClass show];
+//    [self gettingData:NO];
+//    
+//    __unsafe_unretained UITableView *tableView = self.tableView;
+//    __unsafe_unretained __typeof(self) weakSelf = self;
+//    
+//    // 下拉刷新
+//    tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//        [weakSelf gettingData:YES];
+//    }];
+//    
+//    // 设置自动切换透明度(在导航栏下面自动隐藏)
+//    tableView.mj_header.automaticallyChangeAlpha = YES;
+//}
 
 #pragma amrk - 自定义方法
 - (void)settingUi

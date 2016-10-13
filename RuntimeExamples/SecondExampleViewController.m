@@ -28,6 +28,8 @@
     if ([segue.identifier isEqualToString:Delegate_Segue]) {
         nextCtr.type = TimerTableViewControllerTypeDelegate;
     }
+    
+    nextCtr.hidesBottomBarWhenPushed = YES;
 }
 
 @end
