@@ -39,6 +39,7 @@
             method_exchangeImplementations(oldMethod, newMethod);
         }
         
+        //在NSUserDefaults创建一个字典用于记录数据
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithCapacity:1];
         [userDefaults setObject:dic forKey:Statistics_Controllers];
@@ -48,13 +49,17 @@
 
 - (void)replaceViewDidAppear:(BOOL)animated
 {
+    //由于方法的实现已经交换，千万要注意这个地方不能调用被替换的方法，否则会进入死循环
     [self replaceViewDidAppear:animated];
     
+    //取出之前存储的字典对象
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:[userDefaults objectForKey:Statistics_Controllers]];
     NSString *className = NSStringFromClass([self class]);
     NSInteger index = [dic[className] integerValue] + 1;
     dic[className] = @(index);
+    
+    //以控制器的名称作为key来存储相关的访问次数
     [userDefaults setObject:dic forKey:Statistics_Controllers];
     [userDefaults synchronize];
 }
